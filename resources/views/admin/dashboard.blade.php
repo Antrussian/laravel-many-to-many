@@ -21,6 +21,8 @@
                         <th>Data</th>
                         <th>Collaboratore</th>
                         <th>Anteprima</th>
+                        <th>Tipologia</th>
+                        <th>Tecnologia</th>
                         <th>Opzioni</th>
                     </tr>
                 </thead>
@@ -34,6 +36,12 @@
                         <td>{{ $project->author }}</td>
                         <td>
                             <img src="{{ $project->project_image }}" alt="Anteprima del progetto" style="width: 100px; height: auto;">
+                        </td>
+                        <td>{{ $project->type->name ?? 'N/A' }}</td>
+                        <td>
+                            @foreach ($project->technologies as $technology)
+                                <span>{{ $technology->name }}</span>
+                            @endforeach
                         </td>
                         <td>
                             <div class="d-flex flex-column">
